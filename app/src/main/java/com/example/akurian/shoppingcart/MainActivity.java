@@ -40,9 +40,14 @@ public class MainActivity extends AppCompatActivity {
             DataHolder.store = new ArrayList<>();
 
             int uid = 0;
-            JSONArray data = loadJSONFromAsset();
-            for (int i = 0; i < data.length(); i++) {
-                JSONObject catJSON = data.getJSONObject(i);
+
+            JSONObject data = loadJSONFromAsset();
+            DataHolder.startLat = data.getDouble("start-latitude");
+            DataHolder.startLong = data.getDouble("start-longitude");
+
+            JSONArray categories = data.getJSONArray("categories");
+            for (int i = 0; i < categories.length(); i++) {
+                JSONObject catJSON = categories.getJSONObject(i);
 
                 Category category = new Category();
                 category.setName(catJSON.getString("category"));
@@ -74,15 +79,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private JSONArray loadJSONFromAsset() {
-        JSONArray json = null;
+    private JSONObject loadJSONFromAsset() {
+        JSONObject json = null;
         try {
             InputStream is = getAssets().open("data.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new JSONArray(new String(buffer, "UTF-8"));
+            json = new JSONObject(new String(buffer, "UTF-8"));
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (JSONException je) {
