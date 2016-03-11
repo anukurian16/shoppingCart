@@ -1,4 +1,4 @@
-package com.example.akurian.shoppingcart.models;
+package com.akurian.shoppingcart.models;
 
 import java.util.List;
 

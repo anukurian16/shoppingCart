@@ -1,12 +1,12 @@
-package com.example.akurian.shoppingcart;
+package com.akurian.shoppingcart;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.akurian.shoppingcart.models.Category;
-import com.example.akurian.shoppingcart.models.DataHolder;
-import com.example.akurian.shoppingcart.models.Product;
+import com.akurian.shoppingcart.models.Category;
+import com.akurian.shoppingcart.models.DataHolder;
+import com.akurian.shoppingcart.models.Product;
 
 import org.json.JSONArray;
 import org.json.JSONException;

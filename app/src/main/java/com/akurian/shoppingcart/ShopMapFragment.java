@@ -1,4 +1,4 @@
-package com.example.akurian.shoppingcart;
+package com.akurian.shoppingcart;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,10 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.akurian.shoppingcart.models.Category;
-import com.example.akurian.shoppingcart.models.DataHolder;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.akurian.shoppingcart.models.Category;
+import com.akurian.shoppingcart.models.DataHolder;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;

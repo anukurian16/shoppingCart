@@ -1,4 +1,4 @@
-package com.example.akurian.shoppingcart;
+package com.akurian.shoppingcart;
 
 public class Node {
     public  static final int MAX_NUMBER_NODES = 20;

@@ -1,4 +1,4 @@
-package com.example.akurian.shoppingcart;
+package com.akurian.shoppingcart;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,9 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.akurian.shoppingcart.adapters.ProductListAdapter;
-import com.example.akurian.shoppingcart.models.DataHolder;
-import com.example.akurian.shoppingcart.models.Product;
+import com.akurian.shoppingcart.adapters.ProductListAdapter;
+import com.akurian.shoppingcart.models.DataHolder;
+import com.akurian.shoppingcart.models.Product;
 
 import java.util.ArrayList;
 import java.util.List;
