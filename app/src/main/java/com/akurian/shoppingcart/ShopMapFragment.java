@@ -161,6 +161,8 @@ public class ShopMapFragment extends Fragment {
 
 
         boolean[] visited = new boolean[N];
+        visited[N - 1] = true;
+
         int count = 0;
         int NIL = -1;
         while (count < N - 1) {
@@ -168,7 +170,7 @@ public class ShopMapFragment extends Fragment {
             int u = NIL, v = NIL;
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
-                    if (adj[i][j] < min && !visited[i]) {
+                    if (adj[i][j] < min && visited[i]) {
                         min = adj[i][j];
                         u = i;
                         v = j;
@@ -177,6 +179,7 @@ public class ShopMapFragment extends Fragment {
             }
 
             if (visited[u] == false || visited[v] == false) {
+
                 System.out.printf("%d - %d\n", u, v);
 
                 PolylineOptions polyLineOptions = new PolylineOptions();
@@ -191,11 +194,13 @@ public class ShopMapFragment extends Fragment {
                 polyLineOptions.color(Color.BLUE);
                 map.addPolyline(polyLineOptions);
 
-                adj[u][v] = INF;
-                adj[v][u] = INF;
                 visited[v] = true;
+
+                count++;
+
             }
-            count++;
+            adj[u][v] = INF;
+            adj[v][u] = INF;
         }
 
 
