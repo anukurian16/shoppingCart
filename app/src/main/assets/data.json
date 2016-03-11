@@ -1,0 +1,203 @@
+[
+  {
+    "category": "Fruits",
+    "latitude": 12.861103,
+    "longitude": 77.664314,
+    "products": [
+      {
+        "name": "Apples",
+        "cost": 45
+      },
+      {
+        "name": "Oranges",
+        "cost": 70
+      },
+      {
+        "name": "Bananas",
+        "cost": 25
+      },
+      {
+        "name": "Pears",
+        "cost": 22
+      },
+      {
+        "name": "Pineapples",
+        "cost": 30
+      }
+    ]
+  },
+  {
+    "category": "Vegetables",
+    "latitude": 12.861103,
+    "longitude": 77.664314,
+    "products": [
+      {
+        "name": "Potatoes",
+        "cost": 15
+      },
+      {
+        "name": "Tomatoes",
+        "cost": 20
+      },
+      {
+        "name": "Onions",
+        "cost": 25
+      },
+      {
+        "name": "Ginger",
+        "cost": 30
+      },
+      {
+        "name": "Lady finger",
+        "cost": 40
+      }
+    ]
+  },
+  {
+    "category": "Biscuits",
+    "latitude": 12.861103,
+    "longitude": 77.664314,
+    "products": [
+      {
+        "name": "Goodday",
+        "cost": 13
+      },
+      {
+        "name": "Oreo",
+        "cost": 30
+      },
+      {
+        "name": "Sunfeast",
+        "cost": 25
+      },
+      {
+        "name": "Dark fantasy",
+        "cost": 25
+      },
+      {
+        "name": "Parle G",
+        "cost": 10
+      }
+    ]
+  },
+  {
+    "category": "Beverages",
+    "latitude": 12.861103,
+    "longitude": 77.664314,
+    "products": [
+      {
+        "name": "Pepsi",
+        "cost": 13
+      },
+      {
+        "name": "Coke",
+        "cost": 13
+      },
+      {
+        "name": "Whisky",
+        "cost": 180
+      },
+      {
+        "name": "Beer",
+        "cost": 99
+      }
+    ]
+  },
+  {
+    "category": "Bakery",
+    "latitude": 12.861103,
+    "longitude": 77.664314,
+    "products": [
+      {
+        "name": "Bread",
+        "cost": 20
+      },
+      {
+        "name": "Butter",
+        "cost": 15
+      },
+      {
+        "name": "Nutella",
+        "cost": 50
+      },
+      {
+        "name": "Bun",
+        "cost": 5
+      },
+      {
+        "name": "Puff",
+        "cost": 10
+      }
+    ]
+  },
+  {
+    "category": "Meat",
+    "latitude": 12.861103,
+    "longitude": 77.664314,
+    "products": [
+      {
+        "name": "Chicken",
+        "cost": 120
+      },
+      {
+        "name": "Fish",
+        "cost": 200
+      },
+      {
+        "name": "Pork",
+        "cost": 150
+      },
+      {
+        "name": "Mutton",
+        "cost": 300
+      },
+      {
+        "name": "Prawns",
+        "cost": 300
+      }
+    ]
+  },
+  {
+    "category": "Household",
+    "latitude": 12.861103,
+    "longitude": 77.664314,
+    "products": [
+      {
+        "name": "Bucket",
+        "cost": 220
+      },
+      {
+        "name": "Table",
+        "cost": 200
+      },
+      {
+        "name": "Chair",
+        "cost": 150
+      }
+    ]
+  },
+  {
+    "category": "Cereals",
+    "latitude": 12.861103,
+    "longitude": 77.664314,
+    "products": [
+      {
+        "name": "Rice",
+        "cost": 40
+      },
+      {
+        "name": "Maize",
+        "cost": 50
+      },
+      {
+        "name": "Wheat",
+        "cost": 60
+      },
+      {
+        "name": "Ragi",
+        "cost": 70
+      }
+    ]
+  }
+]
+
