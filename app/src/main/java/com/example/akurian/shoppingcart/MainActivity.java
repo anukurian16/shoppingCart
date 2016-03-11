@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             DataHolder.store = new ArrayList<>();
 
+            int uid = 0;
             JSONArray data = loadJSONFromAsset();
             for (int i = 0; i < data.length(); i++) {
                 JSONObject catJSON = data.getJSONObject(i);
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     product.setName(proJSON.getString("name"));
                     product.setCost(proJSON.getInt("cost"));
                     product.setCategory(category.getName());
+                    product.setUID(String.valueOf(uid++));
+                    product.setImage("");
 
                     products.add(product);
                 }

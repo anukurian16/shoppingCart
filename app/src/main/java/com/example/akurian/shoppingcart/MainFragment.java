@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.akurian.shoppingcart.adapters.ProductListAdapter;
 import com.example.akurian.shoppingcart.models.DataHolder;
@@ -22,6 +23,7 @@ import java.util.List;
 
 public class MainFragment extends Fragment implements SearchView.OnQueryTextListener {
 
+    private Button btShop;
     private RecyclerView recyclerView;
     private ProductListAdapter productListAdapter;
     private List<Product> productList;
@@ -52,6 +54,8 @@ public class MainFragment extends Fragment implements SearchView.OnQueryTextList
 
     private void initView(View view) {
 
+        btShop = (Button) view.findViewById(R.id.btShop);
+
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -60,7 +64,7 @@ public class MainFragment extends Fragment implements SearchView.OnQueryTextList
             productList.addAll(DataHolder.store.get(i).getProductList());
         }
 
-        productListAdapter = new ProductListAdapter(getActivity(), productList);
+        productListAdapter = new ProductListAdapter(getActivity(), productList, btShop);
         recyclerView.setAdapter(productListAdapter);
     }
 
