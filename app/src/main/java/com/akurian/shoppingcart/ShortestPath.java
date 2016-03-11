@@ -1,10 +1,8 @@
-package com.example.akurian.shoppingcart;
+package com.akurian.shoppingcart;
 
 import android.util.Log;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
