@@ -2,6 +2,7 @@ package com.example.akurian.shoppingcart;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -55,6 +56,17 @@ public class MainFragment extends Fragment implements SearchView.OnQueryTextList
     private void initView(View view) {
 
         btShop = (Button) view.findViewById(R.id.btShop);
+        btShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShopMapFragment fragment = new ShopMapFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, fragment)
+                        .addToBackStack("StoreMapFragment")
+                        .commit();
+            }
+        });
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
