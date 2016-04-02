@@ -1,16 +1,18 @@
 package com.example.akurian.shoppingcart;
 
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
 
-public class ShortestPath {
+public class ShortestPath extends AppCompatActivity{
     Node[] routingTable = new Node[20];
 
     public boolean checkInlist(int k,ArrayList<Integer> listOfNodes){
@@ -30,7 +32,11 @@ public class ShortestPath {
         ArrayList<Integer> tempList = new ArrayList<Integer>();
         ArrayList<Integer> path = new ArrayList<Integer>();
         Iterator iterator = path.iterator();
-        Scanner scanner = new Scanner(new File("/Users/akurian/samples/src/main/java/org/sample/data.txt"));
+        //InputStream inputStream=openFileInput("data.txt");
+        //InputStream input = getAssets().open("numbers.txt");
+        Scanner scanner = new Scanner(getAssets().open(String.format("data.txt")));
+        //reader = new Scanner(new File(getAssets().open(String.format("myFile.txt"))));
+
         Log.e("in func","bellman");
         for(int i=0;i<routingTable.length;i++){
             routingTable[i]=new Node();
