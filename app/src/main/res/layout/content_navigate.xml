@@ -13,10 +13,8 @@
     tools:showIn="@layout/activity_navigate">
 
 
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-    </ListView>
-
+    <com.qozix.tileview.TileView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tile"></com.qozix.tileview.TileView>
 </RelativeLayout>

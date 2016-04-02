@@ -1,6 +1,9 @@
 package com.example.akurian.shoppingcart;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,7 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+
+
+import com.qozix.tileview.TileView;
+import com.qozix.tileview.paths.CompositePathView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,12 +28,19 @@ public class Navigate extends AppCompatActivity {
     ListView mylistview;
     ArrayAdapter<Integer> listAdapter;
     Node[] routingTable = new Node[30];
+    TileView tileView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigate);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        double[] xCoordinates = {250,100,250,330,400,470,550,630,710,790,250,330,400,470,550,630,710,790,250,330,400,470,550,630,710,790,790};
+        double[] yCoordinates = {970,820,820,820,820,820,820,820,820,820,500,500,500,500,500,500,500,500,180,180,180,180,180,180,180,180,970};
+        final Path path=new Path();
+        CompositePathView.DrawablePath drawablePath = new CompositePathView.DrawablePath();
+        ArrayList<Integer> finalPath=new ArrayList<>();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +50,10 @@ public class Navigate extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        tileView = (TileView) findViewById(R.id.tile);
+        tileView.setSize(getResources().getDisplayMetrics().widthPixels, getResources().getDisplayMetrics().heightPixels);  // the original size of the untiled image
+        tileView.addDetailLevel(1f, "Grocery-Store-Layout.png", getResources().getDisplayMetrics().widthPixels, getResources().getDisplayMetrics().heightPixels);
         listOfNodes=new ArrayList<Integer>();
         Intent i = getIntent();
         ArrayList<String> list = i.getStringArrayListExtra("arraylist");
@@ -137,15 +156,41 @@ public class Navigate extends AppCompatActivity {
 
         try{
             Log.e("call","bellman");
-            ArrayList<Integer> path = bellman(listOfNodes);
+            finalPath = bellman(listOfNodes);
             Log.e("back","bellman");
-            mylistview = (ListView) findViewById(R.id.listView1);
-            listAdapter = new ArrayAdapter<Integer>(Navigate.this, android.R.layout.simple_list_item_1,path);
-            mylistview.setAdapter(listAdapter);
+//            mylistview = (ListView) findViewById(R.id.listView1);
+//            listAdapter = new ArrayAdapter<Integer>(Navigate.this, android.R.layout.simple_list_item_1,finalPath);
+//            mylistview.setAdapter(listAdapter);
         }
         catch (Exception e){}
+        
+
+        for(int k=1;k<yCoordinates.length;k++) {
+            mark(xCoordinates[k], yCoordinates[k]);
+        }
+        path.moveTo((float) xCoordinates[0], (float) yCoordinates[0]);
+        for(int k=0;k<finalPath.size();k++) {
+            path.lineTo((float)xCoordinates[finalPath.get(k)], (float)yCoordinates[finalPath.get(k)]);
+        }
+        drawablePath.path = path;
+        Paint p = new Paint();
+        p.setStyle(Paint.Style.STROKE);
+        drawablePath.paint = p;
+        p.setColor(Color.RED);
+        p.setStrokeWidth(10);
+        tileView.drawPath(drawablePath);
+
 
     }
+
+    void mark(double x, double y) {
+        ImageView imageView=new ImageView(this);
+        imageView.setImageResource(R.drawable.marker);
+        tileView.addMarker(imageView, x, y, -0.5f, -1.0f);
+
+    }
+
+
 
     public ArrayList<Integer> bellman(ArrayList<Integer> listOfNodes)throws Exception{
 
