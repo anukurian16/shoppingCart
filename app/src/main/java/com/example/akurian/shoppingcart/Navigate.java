@@ -133,22 +133,7 @@ public class Navigate extends AppCompatActivity {
             }
 
         }
-//        try {
-//            Log.e("try", "entered");
-//            ArrayList<Integer> path = new ShortestPath().bellman(listOfNodes);
-//            Log.e("back from","bellman");
-//            mylistview = (ListView) findViewById(R.id.listView1);
-//            listAdapter = new ArrayAdapter<Integer>(Navigate.this, android.R.layout.simple_list_item_1,path);
-//            mylistview.setAdapter(listAdapter);
-//            Log.e("Listview",mylistview.toString());
-//            for(int j=0;j<path.size();j++){
-//                Log.e("inside","loop");
-//                Log.isLoggable("-->",path.get(j));
-//            }
-//        }
-//        catch(Exception e){
-//
-//        }
+
 
         try{
             Log.e("call","bellman");
@@ -169,7 +154,7 @@ public class Navigate extends AppCompatActivity {
         ArrayList<Integer> tempList = new ArrayList<Integer>();
         ArrayList<Integer> path = new ArrayList<Integer>();
         Iterator iterator = path.iterator();
-        Scanner scanner = new Scanner(getAssets().open(String.format("data2.txt")));
+        Scanner scanner = new Scanner(getAssets().open(String.format("data.txt")));
         //reader = new Scanner(new File(getAssets().open(String.format("myFile.txt"))));
 
         Log.e("in func","bellman");
