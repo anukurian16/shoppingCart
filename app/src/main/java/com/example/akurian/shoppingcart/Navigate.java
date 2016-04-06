@@ -62,7 +62,7 @@ public class Navigate extends AppCompatActivity {
             String s= list.get(j);
             System.out.println(s);
             switch(s){
-                case "B":
+                case "florist":
                     System.out.println("case 1");
                     listOfNodes.add(1);
                     break;
@@ -78,13 +78,13 @@ public class Navigate extends AppCompatActivity {
                     System.out.println("case 4");
                     listOfNodes.add(4);
                     break;
-                case "F":
+                case "healthcare":
                     listOfNodes.add(5);
                     break;
                 case "G":
                     listOfNodes.add(6);
                     break;
-                case "H":
+                case "frozen":
                     listOfNodes.add(7);
                     break;
                 case "I":
@@ -98,31 +98,31 @@ public class Navigate extends AppCompatActivity {
                     System.out.println("case 2");
                     listOfNodes.add(10);
                     break;
-                case "L":
+                case "cereals":
                     System.out.println("case 3");
                     listOfNodes.add(11);
                     break;
-                case "M":
+                case "fruits":
                     System.out.println("case 4");
                     listOfNodes.add(12);
                     break;
-                case "N":
+                case "vegetables":
                     listOfNodes.add(13);
                     break;
-                case "O":
+                case "biscuits":
                     listOfNodes.add(14);
                     break;
                 case "P":
                     listOfNodes.add(15);
                     break;
-                case "Q":
+                case "Household":
                     listOfNodes.add(16);
                     break;
-                case "R":
+                case "bakery":
                     System.out.println("case 1");
                     listOfNodes.add(17);
                     break;
-                case "S":
+                case "seafood":
                     System.out.println("case 2");
                     listOfNodes.add(18);
                     break;
@@ -130,7 +130,7 @@ public class Navigate extends AppCompatActivity {
                     System.out.println("case 3");
                     listOfNodes.add(19);
                     break;
-                case "U":
+                case "meat":
                     System.out.println("case 4");
                     listOfNodes.add(20);
                     break;
@@ -143,10 +143,10 @@ public class Navigate extends AppCompatActivity {
                 case "X":
                     listOfNodes.add(23);
                     break;
-                case "Y":
+                case "diary":
                     listOfNodes.add(24);
                     break;
-                case "Z":
+                case "wine":
                     listOfNodes.add(25);
                     break;
             }
@@ -163,14 +163,16 @@ public class Navigate extends AppCompatActivity {
 //            mylistview.setAdapter(listAdapter);
         }
         catch (Exception e){}
-        
 
+        markentry(xCoordinates[0], yCoordinates[0]);
+        markexit(xCoordinates[26], yCoordinates[26]);
         for(int k=1;k<yCoordinates.length;k++) {
-            mark(xCoordinates[k], yCoordinates[k]);
+            //mark(xCoordinates[k], yCoordinates[k]);
         }
         path.moveTo((float) xCoordinates[0], (float) yCoordinates[0]);
         for(int k=0;k<finalPath.size();k++) {
-            path.lineTo((float)xCoordinates[finalPath.get(k)], (float)yCoordinates[finalPath.get(k)]);
+            path.lineTo((float) xCoordinates[finalPath.get(k)], (float) yCoordinates[finalPath.get(k)]);
+            mark(xCoordinates[finalPath.get(k)], yCoordinates[finalPath.get(k)]);
         }
         drawablePath.path = path;
         Paint p = new Paint();
@@ -186,6 +188,20 @@ public class Navigate extends AppCompatActivity {
     void mark(double x, double y) {
         ImageView imageView=new ImageView(this);
         imageView.setImageResource(R.drawable.marker);
+        tileView.addMarker(imageView, x, y, -0.5f, -1.0f);
+
+    }
+
+    void markentry(double x, double y) {
+        ImageView imageView=new ImageView(this);
+        imageView.setImageResource(R.drawable.entry);
+        tileView.addMarker(imageView, x, y, -0.5f, -1.0f);
+
+    }
+
+    void markexit(double x, double y) {
+        ImageView imageView=new ImageView(this);
+        imageView.setImageResource(R.drawable.exit);
         tileView.addMarker(imageView, x, y, -0.5f, -1.0f);
 
     }
@@ -237,7 +253,7 @@ public class Navigate extends AppCompatActivity {
 
 
         while(!listOfNodes.isEmpty()){
-            min=999;
+            min=99999;
             pos=cur;
             for(int j=0;j<noOfNodes;j++){
                 if(cur==j)
